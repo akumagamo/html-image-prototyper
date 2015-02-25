@@ -1,0 +1,194 @@
+<!DOCTYPE html >
+<html>
+  <head>
+    <title>proto-typer</title>
+    <meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="scripts/JSXTransformer.js"></script>
+	<script type="text/javascript" src="scripts/react.min.js"></script>
+
+	<style>
+		*{padding:0;margin:0;}
+		body{
+			overflow:hidden;
+			/*  DEBUG */
+			border: 1px solid black;
+		}
+		
+		.page{
+
+			width:100%;
+			height:100%;
+			/*  DEBUG */
+			background-color:red;
+		}
+		
+		.page-view{
+			width:100%;
+			height:100%;
+		}
+		
+		.action-point{
+			position:absolute;
+			z-index:100;
+			/* DEBUG */
+			border:1px solid red;
+		}
+	</style>
+
+	<script>
+
+	var swipeStart = 0,
+	swipeStartPosition = {x:-1, y:-1},
+	swipeEndPosition  = {x:-1, y:-1};
+
+	var SWIPE_LEFT = 4, SWIPE_RIGHT = 2, SWIPE_UP = 1, SWIPE_DOWN = 3, SWIPE_TOUCH = 0, MIN_SWIPE_DURATION=120, MIN_SWIPE_DISTANCE = 10;
+	
+	function swipe(swipeEnd){
+		var result = SWIPE_TOUCH;
+		var swipeDuration = (swipeEnd - swipeStart);
+		var dx = swipeStartPosition.x-swipeEndPosition.x;
+		var dy = swipeStartPosition.y-swipeEndPosition.y;
+			
+		if(swipeDuration > MIN_SWIPE_DURATION && (Math.abs(dx) > MIN_SWIPE_DISTANCE || Math.abs(dy) > MIN_SWIPE_DISTANCE)){
+		
+			if(Math.abs(dx)>Math.abs(dy)){
+				if(dx>0)
+					result = SWIPE_LEFT;
+				else
+					result = SWIPE_RIGHT;
+			}else{
+				if(dy>0)
+					result = SWIPE_UP;
+				else
+					result = SWIPE_DOWN;
+			}
+		}
+		return result;
+	}
+		
+	function start(evt){
+		swipeStart = (new Date()).getTime();
+		
+		swipeStartPosition = {
+			x: evt.touches[0].clientX,
+			y: evt.touches[0].clientY
+		};
+		
+		swipeEndPosition = {
+			x: evt.touches[0].clientX,
+			y: evt.touches[0].clientY
+		};
+	}
+	
+	function move(evt){
+		swipeEndPosition = {x: evt.touches[0].clientX,
+		y: evt.touches[0].clientY};
+	}
+	
+	window.onload = function(){
+		document.addEventListener("touchstart",start, false);
+		document.addEventListener("touchmove",move, false);
+	};
+</script>
+	<script type="text/jsx">
+      //<![CDATA[
+		React.initializeTouchEvents(true);
+	  
+		var app ={
+			name:"first-app",
+			size:{width:600,height:800},
+			workflow:{
+				startPageIdx:0,
+				pages:[
+					{
+						name:"Start Page",
+						image:"img/page_one.png",
+						actionPoints:[
+							{
+								position:{top:0,left:0},
+								size:{width:600,height:800},
+								newPageIdxs:[1]
+							}
+						]
+					},
+					{
+						name:"Page Two",
+						image:"img/page_two.png",
+						actionPoints:[
+							{
+								position:{top:0,left:550},
+								size:{width:50,height:50},
+								newPageIdxs:[0]
+							},
+							{
+								position:{top:300,left:0},
+								size:{width:600,height:100},
+								newPageIdxs:[-1,-1,2,-1,0]
+							}
+						]
+					},
+					{
+						name:"Page Three",
+						image:"img/page_three.png",
+						actionPoints:[
+							{
+								position:{top:0,left:550},
+								size:{width:50,height:50},
+								newPageIdxs:[0]
+							}
+						]
+					}
+				]
+			}
+		}
+
+		var ProtoTyper = React.createClass({
+			getInitialState: function() {
+				return {currentPageIdx: this.props.data.workflow.startPageIdx};
+			},
+			handleTouchEnd:function(newPageIdxs, evt){
+				var recievedAction = swipe((new Date()).getTime());
+				var goToPageWithIdx = newPageIdxs[recievedAction];
+				if(goToPageWithIdx!=undefined){
+					this.setState({currentPageIdx: goToPageWithIdx});
+				}
+			},
+			render : function(){
+				var that = this;
+				var currentPage = this.props.data.workflow.pages[this.state.currentPageIdx];
+				var scale = {
+					x:(window.screen.width/this.props.data.size.width),
+					y:(window.screen.height/this.props.data.size.height)
+				}; 
+				var actionPoints = currentPage.actionPoints.map(function(point,idx){
+					var position = {
+						top:(point.position.top * scale.y) + "px",
+						left:(point.position.left * scale.x)  + "px",
+						width:(point.size.width * scale.x) + "px",
+						height:(point.size.height * scale.y)+ "px"
+					};
+					return(
+						<div key={idx} className="action-point" style={position} 
+							onTouchEnd={that.handleTouchEnd.bind(that, point.newPageIdxs)} >
+						</div>
+					);
+				});
+				return(
+					<div className="page">
+						<img className="page-view" src={currentPage.image} title='2' />
+						{actionPoints}
+					</div>
+				);
+			}
+		});
+	   
+		React.render(
+		  <ProtoTyper data={app}/>,
+		  document.body
+		);
+      //]]>
+    </script>
+  </head>
+  <body></body>
+</html>
