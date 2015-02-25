@@ -35,7 +35,6 @@ https://github.com/akumagamo/image_prototype.git
       | +- ...
       +-+- scripts (logfile default folder)
       | +- JSXTransformer.js (only for development)
-      | +- main.js
       | +- react.min.js
       +- LICENSE  (TBD)
       +- readme.md (this document)
