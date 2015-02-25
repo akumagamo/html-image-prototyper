@@ -10,10 +10,11 @@ none
 
 ## Roadmap / Future Features
 * create App Editor
-**  Moblie Phone Editor
+    * Moblie Phone Editor
 * Landscape / Portrait mode
-** Multi - touch events
-** Popup - Alert Message
+    * Multi - touch events
+    * Popup - Alert Message
+* Mobile / Desktop support (click-events)
 
 
 ## System Requirement & Prerequisits
@@ -25,7 +26,6 @@ HTML5 capable browser
 
 ### SourceControl Link & Information
 https://github.com/akumagamo/image_prototype.git
-
 
 ## Documentation
 
