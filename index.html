@@ -108,8 +108,8 @@
 						image:"img/page_one.png",
 						actionPoints:[
 							{
-								position:{top:0,left:0},
-								size:{width:600,height:800},
+								position:{top:550,left:0},
+								size:{width:600,height:200},
 								newPageIdxs:[1]
 							}
 						]
@@ -119,25 +119,40 @@
 						image:"img/page_two.png",
 						actionPoints:[
 							{
-								position:{top:0,left:550},
-								size:{width:50,height:50},
-								newPageIdxs:[0]
-							},
-							{
-								position:{top:300,left:0},
-								size:{width:600,height:100},
-								newPageIdxs:[-1,-1,2,-1,0]
+								position:{top:0,left:0},
+								size:{width:600,height:800},
+								newPageIdxs:[-1,0]
+							},{
+								position:{top:100,left:0},
+								size:{width:600,height:130},
+								newPageIdxs:[2]
 							}
+							
 						]
 					},
 					{
 						name:"Page Three",
 						image:"img/page_three.png",
+						actionPoints:[{
+								position:{top:70,left:0},
+								size:{width:600,height:800},
+								newPageIdxs:[-1,-1,-1,3]
+							},
+							{
+								position:{top:0,left:500},
+								size:{width:100,height:50},
+								newPageIdxs:[1]
+							}
+						]
+					},
+					{
+						name:"Page Four",
+						image:"img/page_four.png",
 						actionPoints:[
 							{
-								position:{top:0,left:550},
-								size:{width:50,height:50},
-								newPageIdxs:[0]
+								position:{top:0,left:0},
+								size:{width:600,height:800},
+								newPageIdxs:[-1,2,-1,-1,-1]
 							}
 						]
 					}
@@ -152,7 +167,7 @@
 			handleTouchEnd:function(newPageIdxs, evt){
 				var recievedAction = swipe((new Date()).getTime());
 				var goToPageWithIdx = newPageIdxs[recievedAction];
-				if(goToPageWithIdx!=undefined){
+				if(goToPageWithIdx!=undefined && goToPageWithIdx!=-1){
 					this.setState({currentPageIdx: goToPageWithIdx});
 				}
 			},
