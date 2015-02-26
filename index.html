@@ -98,7 +98,7 @@
 		document.addEventListener("touchstart",start, false);
 		document.addEventListener("touchmove",move, false);
 		var liveExpression = /#live/gi
-		DEBUG = !liveExpression.test(location.hash));
+		DEBUG = !liveExpression.test(location.hash);
 	};
 </script>
 	<script type="text/jsx">
@@ -194,7 +194,7 @@
 						height:(point.size.height * scale.y)+ "px"
 					};
 					return(
-						<div key={idx} className={'action-point'+(this.props.debug?'':' live')} style={position} 
+						<div key={idx} className={'action-point'+(DEBUG?'':' live')} style={position} 
 							onTouchEnd={that.handleTouchEnd.bind(that, point.newPageIdxs)} >
 						</div>
 					);
@@ -209,7 +209,7 @@
 		});
 	   
 		React.render(
-		  <ProtoTyper data={app} debug={DEBUG}/>,
+		  <ProtoTyper data={app} />,
 		  document.body
 		);
       //]]>
