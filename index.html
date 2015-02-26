@@ -11,8 +11,8 @@
 		*{padding:0;margin:0;}
 		body{
 			overflow:hidden;
-			/*  DEBUG */
-			border: 1px solid black;
+			/*  DEBUG
+			border: 1px solid black; */
 		}
 		
 		.page{
@@ -20,8 +20,8 @@
 			width:100%;
 			height:100%;
 			overflow:hidden;
-			/*  DEBUG */
-			background-color:red;
+			/*  DEBUG
+			background-color:red; */
 		}
 		
 		.page-view{
@@ -36,9 +36,15 @@
 			/* DEBUG */
 			border:1px solid red;
 		}
+		
+		.live.action-point{
+			border:none;
+		}
 	</style>
 
 	<script>
+
+	var DEBUG = true;
 
 	var swipeStart = 0,
 	swipeStartPosition = {x:-1, y:-1},
@@ -91,6 +97,8 @@
 	window.onload = function(){
 		document.addEventListener("touchstart",start, false);
 		document.addEventListener("touchmove",move, false);
+		var liveExpression = /#live/gi
+		DEBUG = !liveExpression.test(location.hash));
 	};
 </script>
 	<script type="text/jsx">
@@ -186,7 +194,7 @@
 						height:(point.size.height * scale.y)+ "px"
 					};
 					return(
-						<div key={idx} className="action-point" style={position} 
+						<div key={idx} className={'action-point'+(DEBUG?'':' live')} style={position} 
 							onTouchEnd={that.handleTouchEnd.bind(that, point.newPageIdxs)} >
 						</div>
 					);
