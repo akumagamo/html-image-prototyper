@@ -194,7 +194,7 @@
 						height:(point.size.height * scale.y)+ "px"
 					};
 					return(
-						<div key={idx} className={'action-point'+(DEBUG?'':' live')} style={position} 
+						<div key={idx} className={'action-point'+(this.props.debug?'':' live')} style={position} 
 							onTouchEnd={that.handleTouchEnd.bind(that, point.newPageIdxs)} >
 						</div>
 					);
@@ -209,7 +209,7 @@
 		});
 	   
 		React.render(
-		  <ProtoTyper data={app}/>,
+		  <ProtoTyper data={app} debug={DEBUG}/>,
 		  document.body
 		);
       //]]>
