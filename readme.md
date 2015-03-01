@@ -38,10 +38,10 @@ https://github.com/akumagamo/image_prototype.git
 ## Documentation
 
 ### File / Folder Structure 
-    +-+- folder (project_name)
-      +-+- img (desinatoin for Demo Images)
+    +-+- image_prototype
+      +-+- img (destination for Demo Images)
       | +- ...
-      +-+- scripts (logfile default folder)
+      +-+- scripts (Javascript folder)
       | +- JSXTransformer.js (only for development)
       | +- react.min.js
       +- LICENSE  (TBD)
