@@ -50,7 +50,7 @@ https://github.com/akumagamo/image_prototype.git
 ### App-Json description
       { name:"first-app", /* Name of the App*/
         size:{width:600, height:800}, /* size of the App that should be displayed not in use at present */
-	workflow:{ /* App-Flow-Object*/
+        workflow:{ /* App-Flow-Object*/
 	     startPageIdx:0, /* Index of the Page to start on */
 	     pages:[{        /* Pages Collection with pages for App-Flow */
 	            name:"Start Page", /* page name */
