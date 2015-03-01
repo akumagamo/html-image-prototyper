@@ -6,7 +6,7 @@ Mini Application to create a quick Paper-App-Demo.
 * Display Demo App
 
 ## Known Bugs
-* Swipe events problematik on blackberry
+* Swipe events problematic on blackberry
 
 ## Roadmap / Future 
 * Error Handling
@@ -30,6 +30,7 @@ HTML5 capable browser
 ## Usage
 * create images, for Demo
 * create Json, with workflow
+* attach `#live` onto the url to hide the Action-Hotspots
 
 ### SourceControl Link & Information
 https://github.com/akumagamo/image_prototype.git
@@ -47,7 +48,7 @@ https://github.com/akumagamo/image_prototype.git
       +- readme.md (this document)
       +- index.html
 
-### App-Json description
+### App-Json Description
       { name:"first-app", /* Name of the App*/
         size:{width:600, height:800}, /* size of the App that should be displayed not in use at present */
         workflow:{ /* App-Flow-Object*/
@@ -58,7 +59,7 @@ https://github.com/akumagamo/image_prototype.git
 	            actionPoints:[{   /* Action-Hotspots List for the page */
 	                position:{top:0,left:0},  /* Top left corner for Action-Hotspot*/
 	                size:{width:600,height:800}, /* size of the Action-Hotspot*/
-			newPageIdxs:[-1,2,-1,-1,-1] /* Action to Next Page Mapping in order click, swipe: up, right, down, left */
+	                newPageIdxs:[-1,2,-1,-1,-1] /* Action to Next Page Mapping in order click, swipe: up, right, down, left */
 				},
 				...
 			]},
