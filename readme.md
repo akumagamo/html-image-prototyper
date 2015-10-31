@@ -91,7 +91,7 @@ See ```demo.html``` for an working example, here a link to a working Demo [Image
             * **actionpoint-position:** top left position of HotSpot
                 * **top:** top position of HotSpot
                 * **left:** left position of HotSpot
-            * **size:**
+            * **size:** Size of the actionpoint
                 * **height:** Height of the actionpoint 
                 * **width:** Width of the actionpoint
             * **newPageIdxs:** Array of 5 possible actions/pageindex
