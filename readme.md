@@ -39,6 +39,7 @@ https://github.com/akumagamo/image_prototype.git
 
 ### Base App - Code Example
 
+```javascript
 	{ name:"first-app", /* Name of the App*/
         size:{width:600, height:800}, /* size of the App that should be displayed not in use at present */
         workflow:{ /* App-Flow-Object*/
@@ -58,7 +59,7 @@ https://github.com/akumagamo/image_prototype.git
 		}
 	}
 	// Tested on Win7 with Chrome 46+ (in Device Mode)
-
+```
 See working example here, a link to a working Demo [Image Prototyper Demo](https://rawgit.com/akumagamo/html-image-prototyper/demo/index.html)  
 
 
