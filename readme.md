@@ -93,7 +93,7 @@ See ```demo.html``` for an working example, here a link to a working Demo [Image
                 * **left:** left position of HotSpot
             * **size:**
                 * **height:** Height of the actionpoint 
-                * * **width:** Width of the actionpoint
+                * **width:** Width of the actionpoint
             * **newPageIdxs:** Array of 5 possible actions/pageindex
                 * **first value** onClick
                 * **second value** onSwipeUp
