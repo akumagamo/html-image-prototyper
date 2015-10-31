@@ -59,7 +59,7 @@ https://github.com/akumagamo/image_prototype.git
 	}
 	// Tested on Win7 with Chrome 46+ (in Device Mode)
 
-See ```demo.html``` for an working example, here a link to a working Demo [Image Prototyper Demo](https://rawgit.com/akumagamo/html-image-prototyper/demo/index.html)  
+See working example here, a link to a working Demo [Image Prototyper Demo](https://rawgit.com/akumagamo/html-image-prototyper/demo/index.html)  
 
 
 ## Documentation
