@@ -68,8 +68,8 @@ See ```demo.html``` for an working example, here a link to a working Demo [Image
     +-+- image_prototyper
       +-+- img (destination for Demo Images)
       | +- ...
-	  +-+- readme
-	  | +- prototyper-search-demo.png
+      +-+- readme  (media for this document)
+      | +- prototyper-search-demo.png
       +-+- scripts (Javascript folder)
       | +- JSXTransformer.js (only for development)
       | +- react.min.js
@@ -78,7 +78,28 @@ See ```demo.html``` for an working example, here a link to a working Demo [Image
       +- index.html
 
 ### App-Json Objects Properties
-...
+* **name:** Name der App
+* **size:** Size of the images/screens 
+    * **height:** Height of the images/screens 
+    * **width:** Width of the images/screens 
+* **workflow:** Pages
+    * **startPageInfo:** Index of the Startpage
+    * **pages:** Array of pages in the workflow
+        * **page-name:** Name of the page
+        * **page-image:** Image of screen that should bedisplayed
+        * **page-actionPoints:** Array of action pointson the page
+            * **actionpoint-position:** top left position of HotSpot
+                * **top:** top position of HotSpot
+                * **left:** left position of HotSpot
+            * **size:**
+                * **height:** Height of the actionpoint 
+                * * **width:** Width of the actionpoint
+            * **newPageIdxs:** Array of 5 possible actions/pageindex
+                * **first value** onClick
+                * **second value** onSwipeUp
+                * **third value:** onSwipeRight
+                * **fourth value:** onSwipeDown
+                * **fifth value:** onSwipeLeft
 	  
 ### External Libs
 * react.js (http://facebook.github.io/react/)
