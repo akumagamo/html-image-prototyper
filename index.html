@@ -44,7 +44,7 @@
 
 	<script>
 
-        var DEBUG = true;
+    var DEBUG;
 	var swipeStart = 0,
 	swipeStartPosition = {x:-1, y:-1},
 	swipeEndPosition  = {x:-1, y:-1};
@@ -105,14 +105,14 @@
 		React.initializeTouchEvents(true);
 	  
 		var app ={
-			name:"first-app",
+			name:"tmt-201511",
 			size:{width:600,height:800},
 			workflow:{
 				startPageIdx:0,
 				pages:[
 					{
 						name:"Start Page",
-						image:"img/page_one.png",
+						image:"img/20151108_DEV_006.png",
 						actionPoints:[
 							{
 								position:{top:0,left:0},
@@ -122,29 +122,92 @@
 						]
 					},
 					{
-						name:"Page Two",
-						image:"img/page_two.png",
+						name:"Main Window Stopped",
+						image:"img/20151108_DEV_001.png",
 						actionPoints:[
+							{
+								position:{top:470,left:0},
+								size:{width:600,height:120},
+								newPageIdxs:[2]
+							},
+							{
+								position:{top:340,left:0},
+								size:{width:600,height:110},
+								newPageIdxs:[3]
+							},
 							{
 								position:{top:0,left:550},
 								size:{width:50,height:50},
-								newPageIdxs:[0]
-							},
-							{
-								position:{top:300,left:0},
-								size:{width:600,height:100},
-								newPageIdxs:[-1,-1,2,-1,0]
+								newPageIdxs:[5]
 							}
 						]
 					},
 					{
-						name:"Page Three",
-						image:"img/page_three.png",
+						name:"Main Window Started",
+						image:"img/20151108_DEV_005.png",
 						actionPoints:[
 							{
 								position:{top:0,left:550},
 								size:{width:50,height:50},
-								newPageIdxs:[0]
+								newPageIdxs:[5]
+							},
+							{
+								position:{top:370,left:0},
+								size:{width:600,height:120},
+								newPageIdxs:[3]
+							},
+							{
+								position:{top:530,left:0},
+								size:{width:600,height:120},
+								newPageIdxs:[1]
+							}
+						]
+					},
+					{
+						name:"Edit Message",
+						image:"img/20151108_DEV_002.png",
+						actionPoints:[
+							{
+								position:{top:0,left:550},
+								size:{width:50,height:50},
+								newPageIdxs:[5]
+							},
+							{
+								position:{top:0,left:0},
+								size:{width:50,height:50},
+								newPageIdxs:[1]
+							}
+						]
+					},
+					{
+						name:"History List",
+						image:"img/20151108_DEV_004.png",
+						actionPoints:[
+							{
+								position:{top:0,left:550},
+								size:{width:50,height:50},
+								newPageIdxs:[5]
+							},
+							{
+								position:{top:0,left:0},
+								size:{width:50,height:50},
+								newPageIdxs:[1]
+							}
+						]
+					},
+					{
+						name:"Menu Window",
+						image:"img/20151108_DEV_003.png",
+						actionPoints:[
+							{
+								position:{top:0,left:550},
+								size:{width:50,height:50},
+								newPageIdxs:[1]
+							},
+							{
+								position:{top:95,left:0},
+								size:{width:600,height:50},
+								newPageIdxs:[4]
 							}
 						]
 					}
@@ -185,7 +248,7 @@
 				});
 				return(
 					<div className="page">
-						<img className="page-view" src={currentPage.image} title='2' />
+						<img className="page-view" src={currentPage.image} title='2' height="100%"/>
 						{actionPoints}
 					</div>
 				);
